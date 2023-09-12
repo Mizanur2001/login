@@ -1,21 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import bgImg from './images/bg-01.svg'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 import './CSS/App.css'
 import './CSS/util.css'
 
 const App = () => {
 
+  const [input, setInput] = useState({ email: "", pass: "" })
+
+  const funcOnchange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value })
+  }
+
   const funcSignup = (e) => {
     e.preventDefault()
-    console.log("holla")
+    axios.post(`http://192.168.0.105:5000/superadmin/signup/v1/sqfWoSI0Pd3FJuIrHwHFXOTSFcbVM3aybWViOx7wH7hKegmGoyd55rCzvQbZ24Th3q5XUxwzU5hmrVpQjQqIQ8FJ7P9S410vcAsMZoY0seQ0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi`, input).then(response => {
+      toast.success(response.data)
+      setInput({ email: "", pass: "" })
+    }).catch(err => {
+      toast.error(err.response.data)
+    })
+
   }
+
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element={
+        <Route path='/superadmin/signup/v1/0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi/admin' element={
           <div>
+            <ToastContainer />
             <div className="limiter">
               <div className="container-login100">
                 <div className="wrap-login100">
@@ -26,14 +43,14 @@ const App = () => {
 
 
                     <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                      <input className="input100" type="text" name="email" />
+                      <input className="input100" type="text" name="email" value={input.email} onChange={funcOnchange} />
                       <span className="focus-input100"></span>
                       <span className="label-input100">Email</span>
                     </div>
 
 
                     <div className="wrap-input100 validate-input" data-validate="Password is required">
-                      <input className="input100" type="password" name="pass" />
+                      <input className="input100" type="password" name="pass" value={input.pass} onChange={funcOnchange} />
                       <span className="focus-input100"></span>
                       <span className="label-input100">Password</span>
                     </div>
