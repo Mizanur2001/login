@@ -8,7 +8,7 @@ import './CSS/App.css'
 import './CSS/util.css'
 
 const App = () => {
-
+  const URL = process.env.REACT_APP_BACKEND_URL
   const [input, setInput] = useState({ email: "", pass: "" })
 
   const funcOnchange = (e) => {
@@ -17,7 +17,7 @@ const App = () => {
 
   const funcSignup = (e) => {
     e.preventDefault()
-    axios.post(`http://192.168.0.105:5000/superadmin/signup/v1/sqfWoSI0Pd3FJuIrHwHFXOTSFcbVM3aybWViOx7wH7hKegmGoyd55rCzvQbZ24Th3q5XUxwzU5hmrVpQjQqIQ8FJ7P9S410vcAsMZoY0seQ0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi`, input).then(response => {
+    axios.post(`${URL}`, input).then(response => {
       toast.success(response.data)
       setInput({ email: "", pass: "" })
     }).catch(err => {
