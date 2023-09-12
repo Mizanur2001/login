@@ -68,15 +68,15 @@ const App = () => {
                     </div>
 
                     <div className="login100-form-social flex-c-m">
-                      <Link to="/" className="login100-form-social-item flex-c-m bg1 m-r-5">
+                      <Link to="/superadmin/signup/v1/0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi/admin" className="login100-form-social-item flex-c-m bg1 m-r-5">
                         <i className="fa fa-facebook-f" aria-hidden="true"></i>
                       </Link>
 
-                      <Link to="/" className="login100-form-social-item flex-c-m bg2 m-r-5">
+                      <Link to="/superadmin/signup/v1/0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi/admin" className="login100-form-social-item flex-c-m bg2 m-r-5">
                         <i className="fa fa-twitter" aria-hidden="true"></i>
                       </Link>
 
-                      <Link to="/" className="login100-form-social-item flex-c-m bg1 m-r-5">
+                      <Link to="/superadmin/signup/v1/0XFcT2Iz5rtD1mLEMMgmoqowpLzaHIu1GVaAhXyWHbi/admin" className="login100-form-social-item flex-c-m bg1 m-r-5">
                         <i className="fa fa-facebook-f" aria-hidden="true"></i>
                       </Link>
                     </div>
